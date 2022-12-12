@@ -86,39 +86,40 @@ if (isMobile.any()) {
 
 const sliderFirst = new Swiper('.project__slider', {
    // Optional parameters
-   function addZero(num) {
-      return(num > 9) ? num : '0' + num;
-   },
-loop: true,
+   loop: true,
    slidesPerView: 1,
-      slideToClickedSlide: true,
-         thumbs: {
-   swiper: {
-      el: '.project-image__slider',
+   slideToClickedSlide: true,
+   thumbs: {
+      swiper: {
+         el: '.project-image__slider',
          slidesPerView: 8,
-            spaceBetween: 5,
+         spaceBetween: 5,
       },
-},
-pagination: {
-   el: '.project__slider-pagination',
+   },
+   pagination: {
+      formatFractionCurrent: addZero,
+      formatFractionTotal: ,
+      el: '.project__slider-pagination',
       clickable: true,
-         type: 'bullets',
+      type: 'bullets',
    },
-breakpoints: {
-   320: {
-      pagination: {
-         el: '.project__slider-pagination',
+   breakpoints: {
+      320: {
+         pagination: {
+            el: '.project__slider-pagination',
             clickable: true,
-               type: 'bullets',
+            type: 'bullets',
          },
+      },
+      767: {
+      },
    },
-   767: {
-   },
-},
 }
 )
 
-
+function addZero(num) {
+   return (num > 9) ? num : '0' + num;
+}
 
 
 const swiper = new Swiper('.swiper',
